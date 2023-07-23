@@ -1,0 +1,24 @@
+{
+  "name": "discovermada-node-express",
+  "version": "1.0.0",
+  "description": "Node Express Api ",
+  "main": " server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claud-dot/DiscoverMada-Node-Express.git"
+  },
+  "author": "Manda & Claudio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claud-dot/DiscoverMada-Node-Express/issues"
+  },
+  "homepage": "https://github.com/claud-dot/DiscoverMada-Node-Express#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.0"
+  }
+}
