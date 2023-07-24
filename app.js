@@ -38,12 +38,14 @@ app.use(express.static(__dirname+'/public'));
 
 //Routes
 const userRoute = require("./app/routes/userRoute");
+const touristRoute = require("./app/routes/touristSpotRoute");
 
 //Apis
 app.get('/',(req , res)=>{
   res.send("Hello word ! ")
 })
 app.use("/api/user", userRoute);
+app.use("/api/touristspots", touristRoute);
 
 
 module.exports = app;

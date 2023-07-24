@@ -1,7 +1,8 @@
+const User = require('../models/User')
 
-
-const getTestUser = (req , res)=>{
-    res.send("Hello user !");
+const getTestUser = async (req , res)=>{
+    const users = await User.find({});
+    res.send(users);
 }
 
 module.exports = {
