@@ -45,6 +45,31 @@ const getTouristSpots = async (page)=>{
     }
 }
 
+const searchInTourist = async(searchKeyword , langue ='fr')=>{
+    try {
+        const searchQuery = { 
+            $or: [
+                { [`name.${langue}`]: { $regex: new RegExp(searchKeyword, 'i') } },
+                { [`description.${langue}`]: { $regex: new RegExp(searchKeyword, 'i') } },
+                { [`html_content.${langue}`]: { $regex: new RegExp(searchKeyword, 'i') } },
+            ],
+        };
+        const valsearch = await TouristSpot.find(searchQuery);
+        return {
+            status : 200,
+            data : valsearch
+        }
+    } catch (error) {
+        return {
+            status: 400,
+            message: error
+        }
+    }
+}
+
+
+
 module.exports = {
-    getTouristSpots
+    getTouristSpots,
+    searchInTourist
 }
