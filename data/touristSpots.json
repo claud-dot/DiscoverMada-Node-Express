@@ -64,10 +64,13 @@
     },
     {
         "name": {
-            "fr" : "Parc National de l\"Isalo",
-            "en" : "Parc National de l\"Isalo"
+            "fr" : "Parc National de l'Isalo",
+            "en" : "Parc National de l'Isalo"
         },
-        "description" : "Le sud de Madagascar regorge d’une multitude d’attraits touristiques impressionnants.Le massif de l’Isalo fait partie de ces merveilles qu’il faut découvrir absolument.Il est situé dans la ville de Ranohira, sur la Route Nationale 7.C’est le paradis des lémuriens qui gambadent au milieu d’un environnement féerique et époustouflant.Le massif de grès s’étend sur plus de 82 000 hectares, composés de grottes et de canyons.",
+        "description" : {
+            "fr" : "Le sud de Madagascar regorge d’une multitude d’attraits touristiques impressionnants.Le massif de l’Isalo fait partie de ces merveilles qu’il faut découvrir absolument.Il est situé dans la ville de Ranohira, sur la Route Nationale 7.C’est le paradis des lémuriens qui gambadent au milieu d’un environnement féerique et époustouflant.Le massif de grès s’étend sur plus de 82 000 hectares, composés de grottes et de canyons.",
+            "en" : "Southern Madagascar has a wealth of amazing tourist attractions. The Isalo massif is among the wonders that one must see. Located in the city of Ranohira, on Route Nationale 7, it is a paradise for lemurs that roam in the middle of a breathtaking and magical environment. The sandstone formations stretch over more than 82,000 hectares and are composed of caves and canyons."
+        },
         "location" : {
             "latitude" : 0,
             "longitude" : 0
@@ -81,7 +84,7 @@
             "isalo1_vid"
         ],
         "html_content" : {
-            "fr" : "<div class=\"p-0 rounded-bottom\"><div class=\"p-3\"><h1 class=\"h3 mb-3 chimphand line-height-1 text-dark\">Parc National de l\"Isalo</h1><div class=\"dashed-anchor\"><div class=\"container-tinymce-content\"><div class=\"text-justify\" country=\"mg\"><p><strong>Le sud de Madagascar</strong> regorge d’une multitude d’attraits touristiques impressionnants.<strong>Le massif de l’Isalo</strong>&nbsp;fait partie de ces merveilles qu’il faut découvrir absolument.Il est situé dans la ville de&nbsp;<strong>Ranohira</strong>, sur la&nbsp;Route Nationale 7.C’est le paradis des lémuriens qui gambadent au milieu d’un environnement féerique et époustouflant.Le massif de grès s’étend sur plus de 82 000 hectares, composés de grottes et de canyons.</p>
+            "fr" : "<div class=\"p-0 rounded-bottom\"><div class=\"p-3\"><h1 class=\"h3 mb-3 chimphand line-height-1 text-dark\">Parc National de l'Isalo</h1><div class=\"dashed-anchor\"><div class=\"container-tinymce-content\"><div class=\"text-justify\" country=\"mg\"><p><strong>Le sud de Madagascar</strong> regorge d’une multitude d’attraits touristiques impressionnants.<strong>Le massif de l’Isalo</strong>&nbsp;fait partie de ces merveilles qu’il faut découvrir absolument.Il est situé dans la ville de&nbsp;<strong>Ranohira</strong>, sur la&nbsp;Route Nationale 7.C’est le paradis des lémuriens qui gambadent au milieu d’un environnement féerique et époustouflant.Le massif de grès s’étend sur plus de 82 000 hectares, composés de grottes et de canyons.</p>
                     <h2>A&nbsp;la découverte de l’Isalo</h2>
                     <p>Le massif de l’Isalo&nbsp;est un mélange de&nbsp;couleurs&nbsp;et de reliefs merveilleusement sculptés par les érosions.L’alternance&nbsp;des plaines herbeuses&nbsp;agrémentées&nbsp;de pierres&nbsp;grises&nbsp;métallisée&nbsp;à l’ocre-rouge forme une image impressionnante digne des paysages de «&nbsp;Western&nbsp;».Il promet un <strong>panorama insaisissable</strong> envahi par un silence absolu, où la nature reprend ses droits tranquillement et avec fierté.Son altitude varie entre 515 m et&nbsp;1 268&nbsp;m.Il&nbsp;est surnommé par les scientifiques de «&nbsp;massif ruiniforme&nbsp;» du fait qu’il a été sculpté par l’érosion qui lui a octroyé des pics aux formes insolites.Le vent a gratté et creusé le gré pour y créer des profonds canyons, nichés dans un cadre magnifique et hors du commun.</p>
                     <h2>Faune et flore de l\"Isalo</h2>
@@ -120,7 +123,7 @@
     },
     {
         "name": {
-            "fr" : "L\"allée des Baobabs - Morondava",
+            "fr" : "L'allée des Baobabs - Morondava",
             "en" : "The Baobab Alley, Morondava"
         },
         "description" : {

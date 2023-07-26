@@ -1,2 +1,5 @@
 # Ignorer le dossier node_modules
 node_modules/
+
+# Ignorer le configuration de la bdd
+config/
