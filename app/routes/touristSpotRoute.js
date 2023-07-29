@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const touristSpotController = require('./../controllers/touristSpotController');
 
-router.get("/:page", touristSpotController.getTouristSpots);
+router.get("/:page/:lang", touristSpotController.getTouristSpots);
 router.get("/search/:lang", touristSpotController.searchInTourist);
+router.get("/spot/:idSpot/:lang", touristSpotController.getSpotsDetails);
 
 module.exports = router;

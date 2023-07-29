@@ -1,42 +1,29 @@
 const TouristSpot = require('./../models/TouristSpot');
 
-const getTouristSpots = async (page ,langue ='fr' )=>{
+const getTouristSpots = async (page ,langue)=>{
     try {
-        const limit = 10; // Nombre de documents par page
-        const skip = (page - 1) * limit; // Nombre de documents à sauter pour atteindre la page souhaitée
+        const limit = 4; 
+        const skip = (page - 1) * limit;
+        const projection = {
+            name: `$name.${langue}`, 
+            images: 1,
+        };
 
-        const pipeline = [
-            { 
-                $facet : {
-                    totalCount: [
-                        {
-                            $count: "count",
-                        },
-                    ],
+        const result = await TouristSpot.aggregate([
+            {
+                $facet: {
+                    totalCount: [{ $count: "count" }],
                     paginatedResults: [
-                        {
-                            $skip: skip,
-                        },
-                        {
-                            $limit: limit,
-                        },
-                        {
-                            $project: { // Utilisez $project pour spécifier les colonnes à sélectionner
-                                [`name.${langue}`] : 1,
-                                images: 1,
-                                // Ajoutez d'autres colonnes que vous souhaitez inclure dans le résultat ici
-                            },
-                        },
+                        { $skip: skip },
+                        { $limit: limit },
+                        { $project: projection },
                     ],
-                }   
-            }
-        ]
+                },
+            },
+        ]);
 
-        const result = await TouristSpot.aggregate(pipeline);
-
-        // Récupérer les résultats paginés et le nombre total de documents à partir du résultat de l'agrégation
         const paginatedResults = result[0].paginatedResults;
-        const totalCount = result[0].totalCount[0]?.count || 0; // Si totalCount est vide, défaut à 0
+        const totalCount = result[0].totalCount[0]?.count || 0; 
 
         return {
             status: 200,
@@ -52,12 +39,20 @@ const getTouristSpots = async (page ,langue ='fr' )=>{
     }
 }
 
-const getTouristSpotsDetails = async(idSpot , langue ='fr')=>{
+const getSpotsDetails = async(idSpot , langue)=>{
     try {
-        
+        const projection = {
+            name : `$name.${langue}` , // Inclure la colonne 'name'
+            description :`$description.${langue}`, // Inclure la colonne 'description'
+            images : 1 ,
+            videos : 1,
+            location : 1,
+            htmlContent : `$html_content.${langue}` 
+        };
+        const spot = await TouristSpot.findOne({_id : idSpot} , projection);
         return {
             status : 200,
-            data : "valsearch"
+            data : spot
         }
     } catch (error) {
         return {
@@ -67,7 +62,7 @@ const getTouristSpotsDetails = async(idSpot , langue ='fr')=>{
     }
 }
 
-const searchInTourist = async(searchKeyword , langue ='fr')=>{
+const searchInTourist = async(searchKeyword , langue)=>{
     try {
         const searchQuery = { 
             $or: [
@@ -77,10 +72,10 @@ const searchInTourist = async(searchKeyword , langue ='fr')=>{
             ],
         };
         const projection = {
-            [`name.${langue}`] : 1, // Inclure la colonne 'name'
-            [`description.${langue}`]: 1, // Inclure la colonne 'description'
-            images : 1,
-            [`html_content.${langue}`] : 1
+            name : `$name.${langue}` , // Inclure la colonne 'name'
+            description :`$description.${langue}`, // Inclure la colonne 'description'
+            images : 1 ,
+            html_content : `$html_content.${langue}` 
         };
         const valsearch = await TouristSpot.find(searchQuery , projection);
         return {
@@ -99,5 +94,6 @@ const searchInTourist = async(searchKeyword , langue ='fr')=>{
 
 module.exports = {
     getTouristSpots,
+    getSpotsDetails,
     searchInTourist
 }
