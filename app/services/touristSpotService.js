@@ -46,7 +46,6 @@ const getSpotsDetails = async(idSpot , langue)=>{
             description :`$description.${langue}`, // Inclure la colonne 'description'
             images : 1 ,
             videos : 1,
-            location : 1,
             htmlContent : `$html_content.${langue}` 
         };
         const spot = await TouristSpot.findOne({_id : idSpot} , projection);
