@@ -17,9 +17,10 @@ const getSpotsDetails = async (req ,res)=>{
 }
 
 const searchInTourist = async (req , res)=>{
-    const reqSearch = req.body.searchKeyword;
+    console.log("Request Body ", req.body);
+    const reqSearch =  req.body.searchKeyword ? req.body.searchKeyword : req.body.nameValuePairs.searchKeyword;
     const lang = req.params.lang;
-    console.log("Langue ==", lang);
+    console.log("Langue ==", reqSearch);
     const signal = await touristSpotsService.searchInTourist(reqSearch , lang);
     res.send(signal);
 }

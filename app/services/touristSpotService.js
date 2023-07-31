@@ -2,11 +2,12 @@ const TouristSpot = require('./../models/TouristSpot');
 
 const getTouristSpots = async (page ,langue)=>{
     try {
-        const limit = 4; 
+        const limit = 10; 
         const skip = (page - 1) * limit;
         const projection = {
             name: `$name.${langue}`, 
             images: 1,
+            description : `$description.${langue}`
         };
 
         const result = await TouristSpot.aggregate([
@@ -48,7 +49,7 @@ const getSpotsDetails = async(idSpot , langue)=>{
             videos : 1,
             htmlContent : `$html_content.${langue}` 
         };
-        const spot = await TouristSpot.findOne({_id : idSpot} , projection);
+        const spot = await TouristSpot.findOne({_id : idSpot} , projection);    
         return {
             status : 200,
             data : spot
@@ -67,14 +68,12 @@ const searchInTourist = async(searchKeyword , langue)=>{
             $or: [
                 { [`name.${langue}`]: { $regex: new RegExp(searchKeyword, 'i') } },
                 { [`description.${langue}`]: { $regex: new RegExp(searchKeyword, 'i') } },
-                { [`html_content.${langue}`]: { $regex: new RegExp(searchKeyword, 'i') } },
             ],
         };
         const projection = {
             name : `$name.${langue}` , // Inclure la colonne 'name'
             description :`$description.${langue}`, // Inclure la colonne 'description'
             images : 1 ,
-            html_content : `$html_content.${langue}` 
         };
         const valsearch = await TouristSpot.find(searchQuery , projection);
         return {
