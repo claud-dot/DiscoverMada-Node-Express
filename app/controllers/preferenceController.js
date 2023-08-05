@@ -8,7 +8,7 @@ const getSettingUser = async(req , res)=>{
 
 const updateSettingUser = async(req , res)=>{
     const idUser = req.params.idUser;
-    const dataPref =  req.body.preference;
+    const dataPref =  req.body.preference ? req.body.preference : req.body.nameValuePairs.preference.nameValuePairs;
     const signal = await preferenceService.updateSettingUser(idUser , dataPref);
     res.send(signal);
 }

@@ -103,11 +103,9 @@ const resetSetting = async(idUser)=>{
 
 
 function getValue(newValue) {
-    const lowerCaseValue = newValue.toString().toLowerCase();
-  
-    if (lowerCaseValue === 'true') {
+    if (newValue === 'true') {
       return true;
-    } else if (lowerCaseValue === 'false') {
+    } else if (newValue === 'false') {
       return false;
     } else {
       return newValue;
