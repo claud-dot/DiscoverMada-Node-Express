@@ -39,6 +39,7 @@ app.use(express.static(__dirname+'/public'));
 //Routes
 const userRoute = require("./app/routes/userRoute");
 const touristRoute = require("./app/routes/touristSpotRoute");
+const settingRoute = require("./app/routes/preferenceRoute");
 
 //Apis
 app.get('/',(req , res)=>{
@@ -46,6 +47,7 @@ app.get('/',(req , res)=>{
 })
 app.use("/api/user", userRoute);
 app.use("/api/touristspots", touristRoute);
+app.use("/api/setting", settingRoute);
 
 
 module.exports = app;
